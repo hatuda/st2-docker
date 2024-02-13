@@ -11,6 +11,4 @@ trigger:
     minute: "*/1"
 
 action:
-  ref: "core.local"
-  parameters:
-    cmd: 'echo "{{trigger}}" >> ~/st2.cron_sample.out ; sync'
+  ref: "examples.orquesta-comparison-airflow"
