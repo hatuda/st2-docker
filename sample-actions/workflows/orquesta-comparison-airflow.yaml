@@ -1,0 +1,27 @@
+version: 1.0
+
+description: A workflow for comparison.
+
+vars:
+  - result: null
+
+output:
+  - result: <% ctx().result %>
+
+tasks:
+  task1:
+    action: core.local
+    input:
+      cmd: exit $((RANDOM % 2))
+    next:
+      - when: <% succeeded() %>
+        do: task2
+        publish:
+          - result: "succeeded"
+      - when: <% failed() %>
+        publish:
+          - result: "failed"
+  task2:
+    action: core.echo
+    input:
+      message: "after"

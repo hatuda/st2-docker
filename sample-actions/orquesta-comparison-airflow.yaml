@@ -1,0 +1,7 @@
+---
+name: orquesta-comparison-airflow
+pack: examples
+description: A workflow for comparison.
+runner_type: orquesta
+entry_point: workflows/orquesta-comparison-airflow.yaml
+enabled: true
