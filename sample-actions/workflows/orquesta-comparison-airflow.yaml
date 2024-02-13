@@ -22,6 +22,6 @@ tasks:
         publish:
           - result: "failed"
   task2:
-    action: core.echo
+    action: core.local
     input:
-      message: "after"
+      cmd: 'echo "after" >> ~/st2.workflow_sample.out ; sync'
