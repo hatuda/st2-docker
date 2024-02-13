@@ -1,0 +1,16 @@
+---
+name: "sample_rule_with_cron"
+pack: "examples"
+description: "CronTimerを使ったサンプルルール(Airflowの同内容のサンプルDAGとの比較用)"
+enabled: true
+
+trigger:
+  type: "core.st2.CronTimer"
+  parameters:
+    timezone: "UTC"
+    minute: "*/1"
+
+action:
+  ref: "core.local"
+  parameters:
+    cmd: 'echo "{{trigger}}" >> ~/st2.cron_sample.out ; sync'
